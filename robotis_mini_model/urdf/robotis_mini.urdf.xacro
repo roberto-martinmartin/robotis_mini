@@ -11,7 +11,8 @@
     <xacro:torso base_link="${base_link}"/>
     <!-- <xacro:right_hand name="right_hand" parent_link="${base_link}"/> -->
     <!-- <xacro:left_hand name="left_hand" parent_link="${base_link}"/> -->
-    <!-- <xacro:leg name="right_leg" parent_link="${base_link}" xyz="0 0 0" rpy="-${0.5 * PI} ${0 * PI} ${0 * PI}" /> -->
+    <xacro:leg name="right_leg" parent_link="hip_m2_plate2" origin_xyz="0 0 0" origin_rpy="0 0 0" mirror="1.0"/>
+    <xacro:leg name="left_leg" parent_link="hip_m1_plate2" origin_xyz="0 0 0" origin_rpy="0 0 0" mirror="-1.0"/>
     <!-- <xacro:leg name="left_leg" parent_link="${base_link}" xyz="0 0 0" rpy="-${0.5 * PI} ${0 * PI} ${0 * PI}" /> -->
     <!-- <xacro:arm name="right_arm" parent_link="${base_link}" xyz="0 0 0" rpy="-${0.5 * PI} ${0 * PI} ${0 * PI}" /> -->
     <!-- <xacro:arm name="right_arm" parent_link="${base_link}" xyz="0 0 0" rpy="-${0.5 * PI} ${0 * PI} ${0 * PI}" /> -->
