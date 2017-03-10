@@ -5,7 +5,7 @@
 
   <xacro:macro name="right_hand" params="name parent_link">
     <xacro:robotis_mini_link name="${name}_l1" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPO-5(GR).stl"/>
-    <xacro:robotis_mini_fixed_joint name="${parent_link}_to_{name}_l2" parent_link="${parent_link}" child_link="${name}_l1" origin_xyz="0.1 0 0" origin_rpy="0 0 0" />
+    <xacro:robotis_mini_fixed_joint name="${parent_link}_to_{name}_l2" parent_link="${parent_link}" child_link="${name}_l1" origin_xyz="0 0 0" origin_rpy="0 ${-PI/2.0} 0" />
     
     <xacro:robotis_mini_link name="${name}_l2" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPO-5(GR).stl"/>
     <xacro:robotis_mini_fixed_joint name="${name}_l1_to_{name}_l2" parent_link="${name}_l1" child_link="${name}_l2" origin_xyz="0 0.003 0" origin_rpy="0 0 0" />

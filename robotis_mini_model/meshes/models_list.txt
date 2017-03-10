@@ -10,6 +10,7 @@ DMF-B04(W).stl -> Leg / upper part
 DMF-B05(W).stl -> Leg / lower part
 DMF-B06(W).stl -> Foot
 DMF-B07(GR).stl -> Foot / sole
+DMF-F01(W).stl -> Head
 SPD-3B3(W).stl -> Plate 3x3
 SPD-3B5(W).stl -> Plate 3x5
 SPD-3B7(W).stl -> Plate 3x7
