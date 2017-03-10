@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
+
+  <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
+
+  <xacro:macro name="torso" params="base_link">
+    <xacro:robotis_mini_link name="${base_link}" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="DMF-B01(W).stl"/>
+    <!--
+    <xacro:robotis_mini_link name="lower_torso_link" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="DMB-B02(W).stl"/>
+    <xacro:robotis_mini_fixed_joint name="${base_link}_to_lower_torso" parent_link="${base_link}" child_link="lower_torso_link" origin_xyz="0 0 0" origin_rpy="0 0 0" /> -->
+    
+    <xacro:robotis_mini_motor name="shoulder_m1" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
+    <xacro:robotis_mini_fixed_joint name="${base_link}_to_shoulder_m1" parent_link="${base_link}" child_link="shoulder_m1" origin_xyz="0 0 0" origin_rpy="0 0 0" /> -->
+  </xacro:macro>
+</robot>

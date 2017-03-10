@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot name="robotis_mini">
+  <link name="torso_link1">   
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotis_mini_model/meshes/DMF-B01(W).stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="torso_link2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotis_mini_model/meshes/DMB-B02(W).stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+
+  <joint name="torso1_to_torso2" type="fixed">
+    <parent link="torso_link1"/>
+    <child link="torso_link2"/>
+  </joint>
+  
+  <link name="right_shoulder_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://robotis_mini_model/meshes/DMF-B03(W).stl" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="white" />
+    </visual>
+  </link>
+  
+  <joint name="right_shoulder_joint" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+    <origin rpy="$0 {PI/2} {PI/2}" xyz="0.05 0.0 0"/>
+    <parent link="torso_link1"/>
+    <child link="right_shoulder_link"/>
+  </joint>
+</robot>

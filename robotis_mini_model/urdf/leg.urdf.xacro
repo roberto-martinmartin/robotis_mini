@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
+
+  <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
+
+  <xacro:macro name="leg" params="name parent_link origin_xyz origin_rpy">
+    <xacro:robotis_mini_link name="${name}_upper_link" xyz="${origin_xyz}" rpy="${origin_rpy}" mesh_file="DMF-B01(W).stl"/>
+    <xacro:robotis_mini_link name="${name}_lower_link" xyz="0 0 0" rpy="0 0 0" mesh_file="DMF-B01(W).stl"/>
+    <xacro:robotis_mini_link name="${name}_foot_link" xyz="0 0 0" rpy="0 0 0" mesh_file="DMF-B01(W).stl"/>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,21 @@
+I don't want to change the names of the stl models given by Robotis, so that they can 
+be easily recognized.
+However, it is difficult to know which part is the model for with these cryptic names.
+This list matches the original names to robot parts.
+
+DMB-B02(W).stl -> Torso / battery holder
+DMF-B01(W).stl -> Torso / front part
+DMF-B03(W).stl -> Shoulder
+DMF-B04(W).stl -> Leg / upper part
+DMF-B05(W).stl -> Leg / lower part
+DMF-B06(W).stl -> Foot
+DMF-B07(GR).stl -> Foot / sole
+SPD-3B3(W).stl -> Plate 3x3
+SPD-3B5(W).stl -> Plate 3x5
+SPD-3B7(W).stl -> Plate 3x7
+SPD-4B5(W).stl -> Plate 4x5
+SPD-7V4(W).stl -> Plate
+SPL-2B2(W).stl -> L-connector
+SPO-5(GR).stl -> Disc-connector
+SPU-5(W).stl -> Square plate
+XL-320D.stl -> Motor
