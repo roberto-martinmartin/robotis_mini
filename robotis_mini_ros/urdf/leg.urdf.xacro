@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
 
-  <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
+  <xacro:include filename="$(find robotis_mini_ros)/urdf/components.urdf.xacro"/> 
 
   <xacro:macro name="leg" params="name parent_link mirror">   
     <xacro:robotis_mini_link name="${name}_m1_plate" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPD-3B5(W).stl"/>
@@ -14,16 +14,16 @@
     <xacro:robotis_mini_fixed_joint name="${name}_m1_to_${name}_m1_plate2" parent_link="${name}_m1" child_link="${name}_m1_plate2" origin_xyz="0 -0.024 0" origin_rpy="0 0 ${PI}" /> 
     
     <xacro:robotis_mini_link name="${name}_upper" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="DMF-B04(W).stl"/>
-    <xacro:robotis_mini_revolute_joint name="${name}_m1_to_${name}_upper" parent_link="${name}_m1" child_link="${name}_upper" axis_xyz="1 0 0" origin_xyz="0 0 0" origin_rpy="${PI} ${(-1.0*mirror)*PI/2.0} 0" /> 
+    <xacro:robotis_mini_revolute_joint name="${name}_hip2" parent_link="${name}_m1" child_link="${name}_upper" axis_xyz="1 0 0" origin_xyz="0 0 0" origin_rpy="${PI} ${(-1.0*mirror)*PI/2.0} 0" /> 
     
     <xacro:robotis_mini_motor name="${name}_m2" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
     <xacro:robotis_mini_fixed_joint name="${name}_upper_to_${name}_m2" parent_link="${name}_upper" child_link="${name}_m2" origin_xyz="0.0 -0.045 0" origin_rpy="${PI} ${-PI/2.0} 0" /> 
     
     <xacro:robotis_mini_link name="${name}_lower" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="DMF-B05(W).stl"/>
-    <xacro:robotis_mini_revolute_joint name="${name}_m2_to_${name}_lower" parent_link="${name}_m2" child_link="${name}_lower" axis_xyz="1 0 0" origin_xyz="0 0 0" origin_rpy="${-PI/2.0} ${-PI/2.0} 0" /> 
+    <xacro:robotis_mini_revolute_joint name="${name}_knee" parent_link="${name}_m2" child_link="${name}_lower" axis_xyz="1 0 0" origin_xyz="0 0 0" origin_rpy="${-PI/2.0} ${-PI/2.0} 0" /> 
     
     <xacro:robotis_mini_motor name="${name}_m3" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
-    <xacro:robotis_mini_revolute_joint name="${name}_lower_to_${name}_m3" parent_link="${name}_lower" child_link="${name}_m3" axis_xyz="0 0 ${mirror}" origin_xyz="0.0 0 0.042" origin_rpy="${PI/2.0} 0 ${mirror*PI/2.0}" /> 
+    <xacro:robotis_mini_revolute_joint name="${name}_ankle1" parent_link="${name}_lower" child_link="${name}_m3" axis_xyz="0 0 ${mirror}" origin_xyz="0.0 0 0.042" origin_rpy="${PI/2.0} 0 ${mirror*PI/2.0}" /> 
 
     <xacro:robotis_mini_link name="${name}_m3_plate1" origin_xyz="0 0 0" origin_rpy="0 0 0"  mesh_file="SPD-3B7(W).stl"/>
     <xacro:robotis_mini_fixed_joint name="${name}_m3_to_${name}_m3_plate1" parent_link="${name}_m3" child_link="${name}_m3_plate1" origin_xyz="${-mirror*0.012} -0.006 0" origin_rpy="0 0 ${PI/2.0}" />
@@ -32,7 +32,7 @@
     <xacro:robotis_mini_fixed_joint name="${name}_m3_to_${name}_m3_plate2" parent_link="${name}_m3" child_link="${name}_m3_plate2" origin_xyz="${-mirror*0.015} 0 0" origin_rpy="0 0 ${PI/2.0}" />
 
     <xacro:robotis_mini_motor name="${name}_m4" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
-    <xacro:robotis_mini_revolute_joint name="${name}_m3_to_${name}_m4" parent_link="${name}_m3" child_link="${name}_m4" axis_xyz="0 0 ${-mirror}" origin_xyz="${-mirror*0.032} 0 0" origin_rpy="${PI/2.0} 0 ${mirror*PI/2.0}" /> 
+    <xacro:robotis_mini_revolute_joint name="${name}_ankle2" parent_link="${name}_m3" child_link="${name}_m4" axis_xyz="0 0 ${-mirror}" origin_xyz="${-mirror*0.032} 0 0" origin_rpy="${PI/2.0} 0 ${mirror*PI/2.0}" /> 
 
     <xacro:robotis_mini_link name="${name}_foot" origin_xyz="0 0 0" origin_rpy="0 0 0"  mesh_file="DMF-B06(W).stl"/>
     <xacro:robotis_mini_fixed_joint name="${name}_m4_to_${name}_foot" parent_link="${name}_m4" child_link="${name}_foot" origin_xyz="${mirror*0.03} -0.009 0" origin_rpy="0 0 ${mirror*PI/2.0}" />

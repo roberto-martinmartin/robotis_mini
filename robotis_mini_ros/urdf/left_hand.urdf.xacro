@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
 
-  <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
+  <xacro:include filename="$(find robotis_mini_ros)/urdf/components.urdf.xacro"/> 
 
   <xacro:macro name="left_hand" params="name parent_link">
     <xacro:robotis_mini_link name="${name}_l1" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPO-5(GR).stl"/>

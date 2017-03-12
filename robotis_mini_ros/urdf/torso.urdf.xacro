@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
 
-  <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
+  <xacro:include filename="$(find robotis_mini_ros)/urdf/components.urdf.xacro"/> 
 
   <xacro:macro name="torso" params="base_link">    
     <xacro:robotis_mini_link name="${base_link}" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="DMB-B02(W).stl"/>
@@ -35,7 +35,7 @@
     <xacro:robotis_mini_fixed_joint name="hip_m1_to_hip_m1_plate" parent_link="hip_m1" child_link="hip_m1_plate" origin_xyz="0 -0.024 0" origin_rpy="0 0 ${PI}" /> 
     
     <xacro:robotis_mini_link name="hip_m1_plate2" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPD-7V4(W).stl"/>
-    <xacro:robotis_mini_revolute_joint name="hip_m1_to_hip_m1_plate2" parent_link="hip_m1" child_link="hip_m1_plate2" axis_xyz="0 1 0" origin_xyz="0.0 0 0.017" origin_rpy="${PI/2.0} 0 ${PI/2.0}" /> 
+    <xacro:robotis_mini_revolute_joint name="left_hip1" parent_link="hip_m1" child_link="hip_m1_plate2" axis_xyz="0 1 0" origin_xyz="0.0 0 0.017" origin_rpy="${PI/2.0} 0 ${PI/2.0}" /> 
     
     <xacro:robotis_mini_motor name="hip_m2" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
     <xacro:robotis_mini_fixed_joint name="${base_link}_to_hip_m2" parent_link="${base_link}" child_link="hip_m2" origin_xyz="-0.024 -0.03 -0.033" origin_rpy="0 0 ${PI}" /> 
@@ -44,6 +44,6 @@
     <xacro:robotis_mini_fixed_joint name="hip_m2_to_hip_m2_plate" parent_link="hip_m2" child_link="hip_m2_plate" origin_xyz="0 -0.024 0" origin_rpy="0 0 ${PI}" /> 
     
     <xacro:robotis_mini_link name="hip_m2_plate2" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPD-7V4(W).stl"/>
-    <xacro:robotis_mini_revolute_joint name="hip_m2_to_hip_m2_plate2" parent_link="hip_m2" child_link="hip_m2_plate2" axis_xyz="0 -1 0" origin_xyz="0.0 0 0.017" origin_rpy="${PI/2.0} 0 ${PI/2.0}" /> 
+    <xacro:robotis_mini_revolute_joint name="right_hip1" parent_link="hip_m2" child_link="hip_m2_plate2" axis_xyz="0 -1 0" origin_xyz="0.0 0 0.017" origin_rpy="${PI/2.0} 0 ${PI/2.0}" /> 
   </xacro:macro>
 </robot>

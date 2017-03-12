@@ -1,0 +1,7 @@
+<launch>
+  <node name="robotis_mini_poppy_bridge" pkg="robotis_mini_ros" type="poppy_node.py" output="screen">
+    <param name="creature" value="robotis-mini-poppy" />
+    <remap from="/robotis_mini_poppy_bridge/motors/read_present" to="joint_states" />
+    <!-- <remap from="/robotis_mini_poppy_bridge/motors/write" to="goal"/> -->
+  </node>
+</launch>

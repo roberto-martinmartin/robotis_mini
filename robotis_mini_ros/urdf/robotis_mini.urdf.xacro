@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotis_mini">
 
-    <xacro:include filename="$(find robotis_mini_model)/urdf/leg.urdf.xacro"/>
-    <xacro:include filename="$(find robotis_mini_model)/urdf/arm.urdf.xacro"/>
-    <xacro:include filename="$(find robotis_mini_model)/urdf/torso.urdf.xacro"/>
-    <xacro:include filename="$(find robotis_mini_model)/urdf/right_hand.urdf.xacro"/>
-    <xacro:include filename="$(find robotis_mini_model)/urdf/left_hand.urdf.xacro"/>
+    <xacro:include filename="$(find robotis_mini_ros)/urdf/leg.urdf.xacro"/>
+    <xacro:include filename="$(find robotis_mini_ros)/urdf/arm.urdf.xacro"/>
+    <xacro:include filename="$(find robotis_mini_ros)/urdf/torso.urdf.xacro"/>
+    <xacro:include filename="$(find robotis_mini_ros)/urdf/right_hand.urdf.xacro"/>
+    <xacro:include filename="$(find robotis_mini_ros)/urdf/left_hand.urdf.xacro"/>
     
     <xacro:property name="base_link" value="torso_link" />
     <xacro:torso base_link="${base_link}"/>
 
-    <xacro:leg name="right_leg" parent_link="hip_m2_plate2" mirror="1.0"/>
-    <xacro:leg name="left_leg" parent_link="hip_m1_plate2" mirror="-1.0"/>
-    <xacro:arm name="right_arm" parent_link="shoulder_m2" mirror="1.0" />
-    <xacro:arm name="left_arm" parent_link="shoulder_m1" mirror="-1.0" />    
+    <xacro:leg name="right" parent_link="hip_m2_plate2" mirror="1.0"/>
+    <xacro:leg name="left" parent_link="hip_m1_plate2" mirror="-1.0"/>
+    <xacro:arm name="right" parent_link="shoulder_m2" mirror="1.0" />
+    <xacro:arm name="left" parent_link="shoulder_m1" mirror="-1.0" />    
     <xacro:right_hand name="right_hand" parent_link="right_arm_m2_plate2"/>
     <xacro:left_hand name="left_hand" parent_link="left_arm_m2_plate2"/>
     

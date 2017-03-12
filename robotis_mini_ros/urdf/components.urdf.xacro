@@ -20,7 +20,7 @@
       <visual>
         <origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
         <geometry>
-          <mesh filename="package://robotis_mini_model/meshes/${mesh_file}" scale="0.001 0.001 0.001" />
+          <mesh filename="package://robotis_mini_ros/meshes/${mesh_file}" scale="0.001 0.001 0.001" />
         </geometry>
         <xacro:robotis_mini_material/>
       </visual>
@@ -32,7 +32,7 @@
       <visual>
         <origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
         <geometry>
-          <mesh filename="package://robotis_mini_model/meshes/XL-320D.stl" scale="0.001 0.001 0.001" />
+          <mesh filename="package://robotis_mini_ros/meshes/XL-320D.stl" scale="0.001 0.001 0.001" />
         </geometry>
         <xacro:robotis_mini_motor_material/>
       </visual>
