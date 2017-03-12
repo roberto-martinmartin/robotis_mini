@@ -1,8 +1,8 @@
 <package>
-  <name>robotis_mini_model</name>
+  <name>robotis_mini_ros</name>
   <version>1.0.0</version>
   <description>
-  This package contains a URDF model of the Robotis Mini robot.
+  This package contains a URDF model and launch files for the Robotis Mini robot.
   </description>
   
   <license>MIT</license>
