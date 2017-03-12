@@ -3,8 +3,8 @@
 
   <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
 
-  <xacro:macro name="leg" params="name parent_link origin_xyz origin_rpy mirror">   
-    <xacro:robotis_mini_link name="${name}_m1_plate" origin_xyz="${origin_xyz}" origin_rpy="${origin_rpy}" mesh_file="SPD-3B5(W).stl"/>
+  <xacro:macro name="leg" params="name parent_link mirror">   
+    <xacro:robotis_mini_link name="${name}_m1_plate" origin_xyz="0 0 0" origin_rpy="0 0 0" mesh_file="SPD-3B5(W).stl"/>
     <xacro:robotis_mini_fixed_joint name="${parent_link}_to_${name}_m1_plate" parent_link="${parent_link}" child_link="${name}_m1_plate" origin_xyz="0 0.003 0" origin_rpy="0 ${PI} 0" /> 
     
     <xacro:robotis_mini_motor name="${name}_m1" origin_xyz="0 0 0" origin_rpy="0 0 0"/>

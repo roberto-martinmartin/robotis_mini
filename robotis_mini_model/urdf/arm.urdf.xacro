@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find robotis_mini_model)/urdf/components.urdf.xacro"/> 
 
-  <xacro:macro name="arm" params="name parent_link origin_xyz origin_rpy mirror">
+  <xacro:macro name="arm" params="name parent_link mirror">
     <xacro:robotis_mini_link name="${name}_shoulder" origin_xyz="${-0.012*mirror} 0 0.033" origin_rpy="${PI/2.0} 0 ${mirror*PI/2.0}" mesh_file="DMF-B03(W).stl"/>
     <xacro:robotis_mini_revolute_joint name="${parent_link}_to_shoulder" parent_link="${parent_link}" child_link="${name}_shoulder" axis_xyz="0 0 ${mirror}" origin_xyz="0 0 0" origin_rpy="0 0 0" /> 
 
