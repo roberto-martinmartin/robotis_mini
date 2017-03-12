@@ -1,0 +1,3 @@
+[submodule "robotis_mini_poppy"]
+	path = robotis_mini_poppy
+	url = https://github.com/roberto-martinmartin/robotis_mini_poppy.git
