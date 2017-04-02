@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="robotis_mini" >
+  
+  <xacro:include filename="$(find robotis_mini_description)/urdf/materials.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/common.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/servo.urdf.xacro" />
+
+  <xacro:include filename="$(find robotis_mini_description)/urdf/base.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/body.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/arm.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/hand.urdf.xacro" />
+  <xacro:include filename="$(find robotis_mini_description)/urdf/leg.urdf.xacro" />
+
+  <xacro:robotis_mini_base name="base"/>
+
+  <xacro:robotis_mini_body parent="base_link" />
+
+  <xacro:robotis_mini_arm side="l" reflect="1" parent="l_shoulder_anchor_link" />
+  <xacro:robotis_mini_arm side="r" reflect="-1" parent="r_shoulder_anchor_link" />
+
+  <xacro:robotis_mini_leg side="l" reflect="1" parent="l_hip_anchor_link" />
+  <xacro:robotis_mini_leg side="r" reflect="-1" parent="r_hip_anchor_link" />
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/robotis_mini</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>

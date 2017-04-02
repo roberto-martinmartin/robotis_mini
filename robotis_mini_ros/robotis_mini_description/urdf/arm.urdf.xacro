@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="robotis_mini_arm" params="side parent reflect">
+    <xacro:robotis_mini_servo_fixed name="${side}_shoulder" parent="${parent}"
+        xyz="0 -0.024 0" rpy="${(1-reflect)*M_PI/2} 0 ${(1+reflect)*M_PI/2}" initial_rotation="0" reflect="${reflect}"/>
+    <xacro:robotis_mini_dmfb03 name="${side}_biceps_anchor" parent="${side}_shoulder_link"
+        xyz="${reflect*0.012} 0 0.033" rpy="${M_PI/2} 0 ${reflect*-M_PI/2}" />
+    <xacro:robotis_mini_servo_rotating_with_wheel name="${side}_biceps" parent="${side}_biceps_anchor_link"
+        xyz="0 0 0" rpy="${M_PI/2} 0 ${reflect*M_PI/2}" initial_rotation="${reflect*M_PI/2.0}" reflect="${reflect}"/>
+    <xacro:robotis_mini_dmfb04 name="${side}_upper_arm" parent="${side}_biceps_link"
+        xyz="0 -0.045 0" rpy="${M_PI} ${reflect*-M_PI/2} 0" />
+    <xacro:robotis_mini_servo_rotating_with_wheel name="${side}_elbow" parent="${side}_upper_arm_link"
+        xyz="0 0 0" rpy="${M_PI} ${reflect*-M_PI/2} 0" initial_rotation="0" reflect="${reflect}"/>
+    <xacro:robotis_mini_spu5 name="${side}_lower_arm" parent="${side}_elbow_link"
+        xyz="0 -0.024 0" rpy="0 ${M_PI} ${M_PI}" />
+    <xacro:robotis_mini_spd3b3 name="${side}_wrist_anchor" parent="${side}_lower_arm_link"
+        xyz="0 0.0045 0" rpy="0 0 0" />
+    <xacro:robotis_mini_hand side="${side}" reflect="${reflect}" parent="${side}_wrist_anchor_link" />
+  </xacro:macro>
+  
+</robot>

@@ -1,0 +1,71 @@
+robotis_mini:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Joint Position Controllers ---------------------------------------
+  right_shoulder1_controller:
+    type: JointPositionController
+    joint: right_shoulder1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_shoulder2_controller:
+    type: JointPositionController
+    joint: right_shoulder2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_elbow_controller:
+    type: JointPositionController
+    joint: right_elbow
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_shoulder1_controller:
+    type: JointPositionController
+    joint: left_shoulder1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_shoulder2_controller:
+    type: JointPositionController
+    joint: left_shoulder2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_elbow_controller:
+    type: JointPositionController
+    joint: left_elbow
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_hip1_controller:
+    type: JointPositionController
+    joint: right_hip1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_hip2_controller:
+    type: JointPositionController
+    joint: right_hip2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_knee_controller:
+    type: JointPositionController
+    joint: right_knee
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_ankle1_controller:
+    type: JointPositionController
+    joint: right_ankle1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  right_ankle2_controller:
+    type: JointPositionController
+    joint: right_ankle2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_hip1_controller:
+    type: JointPositionController
+    joint: left_hip1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_hip2_controller:
+    type: JointPositionController
+    joint: left_hip2
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_knee_controller:
+    type: JointPositionController
+    joint: left_knee
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_ankle1_controller:
+    type: JointPositionController
+    joint: left_ankle1
+    pid: {p: 100.0, i: 0.1, d: 10.0}
+  left_ankle2_controller:
+    type: JointPositionController
+    joint: left_ankle2
+    pid: {p: 100.0, i: 0.1, d: 10.0}

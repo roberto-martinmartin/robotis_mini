@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>robotis_mini_gazebo</name>
+  <version>0.0.0</version>
+  <description>The robotis_mini_gazebo package for simulations</description>
+
+  <maintainer email="rmartinmar@gmail.com">Roberto Martín-Martín</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>robotis_mini_description</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+  <build_depend>gazebo_plugins</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>gazebo_ros_control</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  
+  <run_depend>robotis_mini_description</run_depend>
+  <run_depend>gazebo_msgs</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>robotis_mini_description</run_depend>
+  <run_depend>hector_gazebo_plugins</run_depend>
+</package>
