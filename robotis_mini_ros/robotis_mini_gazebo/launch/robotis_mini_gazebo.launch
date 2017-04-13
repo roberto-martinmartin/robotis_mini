@@ -1,16 +1,26 @@
 <launch>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find robotis_mini_description)/urdf/robotis_mini.urdf.xacro'" />
- 
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="true"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="model" default="$(find robotis_mini_description)/urdf/robotis_mini.urdf.xacro"/>
+
+  <!-- define the robot_description parameter as the output of the xacro deparser on the urdf model of the robot-->
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <!-- launch gazebo. You can use any of the arguments at the beginning of the launch file--> 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="worlds/empty.world"/>
-    <arg name="paused" value="true"/>
+    <arg name="paused" value="$(arg paused)"/>
   </include>
  
-  
+  <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen" 
       args="-z 0.17 -urdf -param robot_description -model robotis_mini" />
 
- 
- <!-- <node name="robotis_mini_walker" pkg="robotis_mini_gazebo" type="walker.py" output="screen" /> -->
+  <!-- run the walker node: listens to walking commands and generates walking trajectories as a combination of sinusoiods (CPG) -->
+  <!-- <node name="robotis_mini_walker" pkg="robotis_mini_gazebo" type="walker.py" output="screen" /> -->
 </launch>

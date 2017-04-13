@@ -1,0 +1,9 @@
+<launch>
+  <!-- includes the roslaunch that launches the robot state publisher, the xacro deparser and rviz -->
+  <include file="$(find robotis_mini_description)/launch/display.launch" />
+  
+  <!-- launch the joint state publisher: publishes the state of each joint of the robot (acts as a hardware mock up)-->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <param name="use_gui" value="true" />
+  </node>
+</launch>
