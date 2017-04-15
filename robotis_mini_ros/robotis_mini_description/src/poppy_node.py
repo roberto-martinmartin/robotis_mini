@@ -28,14 +28,16 @@ def JointStateWrite(data):
                 found = True
                 if len(data.position) > 0:
                     m.goal_position = np.rad2deg(data.position[i])
+                    if  abs(data.position[i]) > 0. and m.compliant:
+                        m.compliant = False
                 if len(data.velocity) > 0:
                     m.goal_speed = np.rad2deg(data.velocity[i])
+                    if  abs(data.velocity[i]) > 0. and m.compliant:
+                        m.compliant = False
                 if len(data.effort) > 0:
                     m.max_torque = data.effort[i]
-                    if  data.effort[i] > 0.:
+                    if  abs(data.effort[i]) > 0. and m.compliant:
                         m.compliant = False
-                    else:
-                        m.compliant = True
                 break
         if not found:
             print "ERROR, unknown motor ",data.name[i]
@@ -56,7 +58,7 @@ def poppy_node():
     rate = rospy.Rate(10) 
 
     #from creature param, create creature object
-    creature = rospy.get_param(rospy.get_name()+'/creature','robotis_mini_poppy')
+    creature = rospy.get_param(rospy.get_name()+'/creature','robotis-mini-poppy')
     global poppy
         
     if creature.endswith(".json"):
@@ -73,11 +75,13 @@ def poppy_node():
 
         mod = import_module(libraryName )
         met = getattr(mod, objectName)
-
+    
         poppy = met()
 
     #set motors info as params
+    print "Robotis Mini joints:"
     for m in poppy.motors:
+        print m.name
         rospy.set_param(rospy.get_name()+'/motor/'+m.name+'/id', m.id)
         rospy.set_param(rospy.get_name()+'/motor/'+m.name+'/model', m.model)
         rospy.set_param(rospy.get_name()+'/motor/'+m.name+'/direct', m.direct)
@@ -89,12 +93,16 @@ def poppy_node():
     pubs = {}
         
     pubs[rospy.get_name()+'/motors/read_present'] = rospy.Publisher(rospy.get_name()+'/motors/read_present', JointState, queue_size=10)
+    pubs['/robotis_mini/joint_states'] = rospy.Publisher('/robotis_mini/joint_states', JointState, queue_size=10)
     pubs[rospy.get_name()+'/motors/read_goal'] = rospy.Publisher(rospy.get_name()+'/motors/read_goal', JointState, queue_size=10)
     
     #subscribe to topic to change the goal_position, goal_speed and compliance
     rospy.Subscriber(rospy.get_name()+'/motors/write', JointState, JointStateWrite)   
+    rospy.Subscriber('/robotis_mini/goal', JointState, JointStateWrite)   
     
+    print "Robotis Mini primitives:"
     for p in poppy.primitives:
+        print p.name
         rospy.Subscriber(rospy.get_name()+'/primitive/'+p.name+'/start', String, usePrimitive, callback_args=[p.name, "start"])   
         rospy.Subscriber(rospy.get_name()+'/primitive/'+p.name+'/stop', String, usePrimitive, callback_args=[p.name, "stop"])  
 
@@ -114,7 +122,7 @@ def poppy_node():
             msg.effort.append(m.present_load)
 
         pubs[rospy.get_name()+'/motors/read_present'].publish(msg)
-        
+        pubs['/robotis_mini/joint_states'].publish(msg) #In standard topic
         
         msg = JointState()
         msg.header.stamp = rospy.Time.now()
