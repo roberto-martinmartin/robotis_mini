@@ -6,7 +6,9 @@
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
 
   <!-- launch the robot state publisher: publishes the tf frames of each link of the robot based on the published joint states (performs forward kinematics)-->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" >
+    <remap from="joint_states" to="/robotis_mini/joint_states" />
+  </node>
     
   <!-- launch rviz-->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
