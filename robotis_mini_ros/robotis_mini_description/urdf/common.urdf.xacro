@@ -56,6 +56,17 @@
   <property name="MESHVOLUME_XL320"  value="16403.394531" />
   -->
 
+  <xacro:macro name="friction_properties" params="link_name">
+    <gazebo reference="${link_name}_link">
+      <mu1>10000</mu1>
+      <mu2>10000</mu2>
+      <kp>100.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxContacts>100</maxContacts> 
+    </gazebo>
+  </xacro:macro>
+
   <xacro:macro name="robotis_mini_dmfb01" params="name parent xyz rpy">
     <joint name="${name}_joint" type="fixed">
       <origin xyz="${xyz}" rpy="${rpy}" />
@@ -84,6 +95,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmbb02" params="name parent xyz rpy">
@@ -114,6 +126,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmfb03" params="name parent xyz rpy">
@@ -144,6 +157,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmfb04" params="name parent xyz rpy">
@@ -174,6 +188,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmfb05" params="name parent xyz rpy">
@@ -204,6 +219,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmfb06" params="name parent xyz rpy">
@@ -234,6 +250,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmfb07" params="name parent xyz rpy">
@@ -264,14 +281,7 @@
         </geometry>
       </collision>
     </link>
-    <gazebo reference="${name}_link">
-      <mu1>10000</mu1>
-    <mu2>10000</mu2>
-    <kp>10.0</kp>
-    <kd>100.0</kd>
-    <minDepth>0.001</minDepth>
-    <maxContacts>100</maxContacts> 
-    </gazebo>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_dmff01" params="name parent xyz rpy">
@@ -302,6 +312,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spu5" params="name parent xyz rpy">
@@ -332,6 +343,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spd3b3" params="name parent xyz rpy">
@@ -362,6 +374,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spd3b5" params="name parent xyz rpy">
@@ -392,6 +405,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spd3b7" params="name parent xyz rpy">
@@ -422,6 +436,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
   
   <xacro:macro name="robotis_mini_spd4b5" params="name parent xyz rpy">
@@ -452,6 +467,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spd7v4" params="name parent xyz rpy">
@@ -482,6 +498,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spl2b2" params="name parent xyz rpy">
@@ -512,6 +529,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_spo5" params="name parent xyz rpy">
@@ -542,6 +560,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_lb040" params="name parent xyz rpy">
@@ -572,6 +591,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 
   <xacro:macro name="robotis_mini_xl320" params="name">
@@ -597,6 +617,7 @@
         </geometry>
       </collision>
     </link>
+    <xacro:friction_properties link_name="${name}"/>
     <gazebo reference="${name}_link">
       <material>Gazebo/DarkGrey</material>
     </gazebo>
