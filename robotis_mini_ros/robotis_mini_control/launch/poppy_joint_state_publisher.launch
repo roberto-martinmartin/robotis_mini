@@ -1,6 +1,6 @@
 <launch>
   <!-- bridge connecting to the real robot using poppy and that acts as joint state publisher -->
-  <node name="robotis_mini" pkg="robotis_mini_description" type="poppy_node.py" output="screen">
+  <node name="robotis_mini" pkg="robotis_mini_control" type="poppy_node.py" output="screen">
     <param name="creature" value="robotis-mini-poppy" />
   </node>
 </launch>
