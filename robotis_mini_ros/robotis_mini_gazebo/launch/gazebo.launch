@@ -22,5 +22,5 @@
       args="-z 0.17 -urdf -param robot_description -model robotis_mini" />
 
   <!-- run the walker node: listens to walking commands and generates walking trajectories as a combination of sinusoiods (CPG) -->
-  <node name="robotis_mini_walker" pkg="robotis_mini_gazebo" type="walker.py" output="screen" />
+  <node name="robotis_mini_walker" pkg="robotis_mini_control" type="walker.py" output="screen" args=""/>
 </launch>

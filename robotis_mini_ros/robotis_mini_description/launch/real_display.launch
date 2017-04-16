@@ -1,7 +1,10 @@
 <launch>
+  <!-- real robot, real time -->
+  <param name="use_sim_time" value="False" />
+  
   <!-- includes the roslaunch that launches the robot state publisher, the xacro deparser and rviz -->
   <include file="$(find robotis_mini_description)/launch/display.launch" />
   
   <!-- includes the roslaunch that launches a bridge connecting to the real robot using poppy and that acts as joint state publisher -->
-  <include file="$(find robotis_mini_description)/launch/poppy_joint_state_publisher.launch" />
+  <include file="$(find robotis_mini_control)/launch/poppy_joint_state_publisher.launch" />
 </launch>

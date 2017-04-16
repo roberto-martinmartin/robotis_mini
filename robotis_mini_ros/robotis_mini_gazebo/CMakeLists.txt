@@ -19,8 +19,6 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(gazebo REQUIRED)
 
-catkin_python_setup()
-
 catkin_package(
   CATKIN_DEPENDS 
     sensor_msgs

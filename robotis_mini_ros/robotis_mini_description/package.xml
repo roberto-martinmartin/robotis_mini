@@ -13,6 +13,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>roslaunch</build_depend>
+  <build_depend>robotis_mini_control</build_depend>
   <run_depend>controller_manager</run_depend>
   <run_depend>diff_drive_controller</run_depend>
   <run_depend>gazebo_ros</run_depend>
@@ -26,5 +27,6 @@
   <run_depend>rviz</run_depend>
   <run_depend>urdf</run_depend>
   <run_depend>xacro</run_depend>
+  <run_depend>robotis_mini_control</run_depend>
 
 </package>
