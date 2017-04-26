@@ -11,6 +11,7 @@ import argparse
 import std_srvs.srv
 import sys
 
+
 class SinusoidFunction:
     """
     SinusoidFunction for single joints CPG style
@@ -24,7 +25,7 @@ class SinusoidFunction:
         
     def get(self, x):
         """ x between 0 and 1"""
-        f= math.sin(self.phase_offset + self.angular_frequency*x)
+        f = math.sin(self.phase_offset + self.angular_frequency*x)
         return self.amplitude_offset + self.amplitude*f        
         
     def clone(self):
@@ -69,11 +70,7 @@ class WholeBodyWalkerFunction:
             self.parameters[pn + '_amplitude_offset']=pp[1]
             self.parameters[pn + '_phase_offset']=pp[2]
 
-        self.parameters["swing_amplitude"]=0.4
-        
-        self.parameters["step_amplitude"]=-0.4
         self.parameters["step_frequency"]=math.pi
-        self.parameters["step_amplitude_offset"]=-0.7
         
         self.parameters["vx_amplitude"]=0.5
         self.parameters["vy_amplitude"]=0.5
@@ -192,8 +189,7 @@ class WholeBodyWalkerFunction:
         for j in self.pfn.keys():
             print j,"p",self.pfn[j],"a",self.afn[j]        
         print self.pfn["l_knee_joint"].amplitude_offset
-        
-    
+
     def apply_velocity(self, angles, velocity, phase, x):
         """ Modify on the walk-on-spot joint angles to apply the velocity vector"""
         
@@ -283,7 +279,7 @@ class Walker:
 
         self.initial_wq = self.wb_walkerfunc.get(True, 0, [0,0,0])  #First joint configuration to start the walking motion
 
-        print "initial_wq"
+        print "__init__:initial_wq"
         j_names=self.initial_wq.keys()
         for jn in j_names:
             print jn + str(":") + str(self.initial_wq[jn])
@@ -299,7 +295,7 @@ class Walker:
         
         if not self.real_robot:
             self.pubs = {}
-            #Wait until the joints have been populated
+            # Wait until the joints have been populated
             while self.robotis_mini_ci.q_names is None:
                 time.sleep(1)
             for jn in self.robotis_mini_ci.q_names:
