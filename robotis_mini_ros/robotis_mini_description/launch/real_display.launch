@@ -7,4 +7,7 @@
   
   <!-- includes the roslaunch that launches a bridge connecting to the real robot using poppy and that acts as joint state publisher -->
   <include file="$(find robotis_mini_control)/launch/poppy_joint_state_publisher.launch" />
+  
+  <!-- start the node to see images from the cyclops_cam -->
+  <include file="$(find robotis_mini_description)/launch/cyclops_cam.launch" />
 </launch>
