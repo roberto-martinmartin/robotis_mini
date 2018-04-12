@@ -312,6 +312,36 @@
         </geometry>
       </collision>
     </link>
+    
+    <!-- Camera  - M_PI/20.0 -->
+    <link name="camera_link">
+      <collision>
+        <origin xyz="-0.008 0 0" rpy="0 ${M_PI/2.0 + M_PI/15.0} 0"/>
+        <geometry>
+          <cylinder radius="0.004" length="0.05"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 -0.025" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.005" length="0.05"/>
+        </geometry>
+        <material name="Red"/>
+      </visual>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="-0.008 0 0.05" rpy="0 ${M_PI/2.0 + M_PI/15.0} 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>    
+    <joint name="camera_joint" type="fixed">
+      <origin xyz="0.0 0.022 0.015" rpy="${- M_PI/20.0} 0 ${M_PI}"/>
+      <parent link="${name}_link"/>
+      <child link="camera_link"/>
+    </joint>
+    
     <xacro:friction_properties link_name="${name}"/>
   </xacro:macro>
 

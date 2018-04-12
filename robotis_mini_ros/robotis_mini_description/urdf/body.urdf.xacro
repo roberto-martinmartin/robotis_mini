@@ -13,8 +13,8 @@
         xyz="0 0.011 -0.032" rpy="0 0 0" />
     <xacro:robotis_mini_lb040 name="body_chest" parent="body_skeleton_link"
         xyz="0 0.016 -0.004" rpy="0 0 0" />
-    <xacro:robotis_mini_servo_rotating_fake name="neck" parent="body_torso_link"
-        xyz="0 0.036 0.006" rpy="${M_PI/2} 0 0" initial_rotation="0" />
+    <xacro:robotis_mini_servo_rotating name="neck" parent="body_torso_link"
+        xyz="0 0.036 0.006" rpy="${M_PI/2} 0 0" initial_rotation="0" reflect="1"/>
     <xacro:robotis_mini_dmff01 name="body_head" parent="neck_link"
         xyz="0 0 0.003" rpy="${-M_PI/2} 0 0" />
     <xacro:robotis_mini_spu5 name="l_shoulder_anchor" parent="body_skeleton_link"

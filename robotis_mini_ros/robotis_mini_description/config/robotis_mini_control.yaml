@@ -69,3 +69,7 @@ robotis_mini:
     type: JointPositionController
     joint: left_ankle2
     pid: {p: 100.0, i: 0.1, d: 10.0}
+  neck_controller:
+    type: JointPositionController
+    joint: neck
+    pid: {p: 100.0, i: 0.1, d: 10.0}

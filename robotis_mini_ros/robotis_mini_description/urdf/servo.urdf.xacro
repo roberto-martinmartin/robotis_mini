@@ -31,7 +31,7 @@
     <xacro:robotis_mini_xl320 name="${name}_servo" />
     <joint name="${name}_joint" type="revolute">
       <axis xyz="0 0 ${-reflect}" />
-      <limit lower="${-M_PI/2.0}" upper="${M_PI/2.0}" effort="${XL320_MAX_TORQUE}" velocity="${XL320_MAX_VELOCITY}" />
+      <limit lower="${-3*M_PI/4.0}" upper="${3*M_PI/4.0}" effort="${XL320_MAX_TORQUE}" velocity="${XL320_MAX_VELOCITY}" />
       <origin xyz="0 0 0" rpy="0 0 ${initial_rotation}" />
       <parent link="${name}_servo_link"/>
       <child link="${name}_link"/>
